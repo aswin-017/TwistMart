@@ -1,0 +1,32 @@
+/* General styling for the About Us section */
+.about-us {
+    width: 100%; /* Full width of the container */
+    margin-top: 0; /* Ensure no extra margin is applied */
+    text-align: center; /* Center the image and text */
+    padding: 0; /* Remove any default padding */
+  }
+  
+  .about-image-container {
+    position: relative; /* For overlay content positioning */
+  }
+  
+  .about-image {
+    width: 100%; /* Full width of the container */
+    height: 500px; /* Maintain aspect ratio */
+    object-fit: cover; /* Cover the space without distortion */
+    margin: 0 auto; /* Center the image horizontally */
+    display: block; /* Ensure image is block level for margin auto */
+    padding: 0; /* Remove padding if present */
+  }
+  
+  .overlay-content {
+    position: absolute; /* Overlay on top of the image */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5); /* Optional: background for better text readability */
+    padding: 20px;
+    border-radius: 10px;
+  }

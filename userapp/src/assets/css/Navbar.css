@@ -1,0 +1,101 @@
+/* src/assets/css/Navbar.css */
+
+/* Navbar container */
+.navbar-container {
+  margin-top: 85px; /* Adjust based on the header height */
+}
+
+/* Navbar styling */
+.navbar {
+  background-color: var(--background); /* Use theme background */
+  padding: 10px 20px;
+  border-bottom: 1px solid var(--border); /* Use theme border */
+}
+
+/* Navbar list */
+.navbar-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar items */
+.navbar-item {
+  margin: 0 15px;
+}
+
+/* Navbar links */
+.navbar-link {
+  color: var(--foreground); /* Use theme text color */
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+/* Navbar link hover */
+.navbar-link:hover {
+  color: var(--primary); /* Use theme primary color */
+}
+
+/* Logout button */
+.logout-button {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 0;
+}
+
+/* Dropdown styling */
+.dropdown {
+  position: absolute;
+  background-color: var(--background); /* Dropdown background color */
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Dropdown box shadow */
+  z-index: 1;
+  display: none;
+  padding: 10px 0;
+  border-radius: 4px; /* Example dropdown border radius */
+}
+
+.dropdown.show {
+  display: block;
+  list-style: none;
+  margin-top: 10px;
+}
+
+.dropdown-item {
+  list-style: none; /* Remove default list-style */
+  margin: 0;
+  color: var(--primary); /* Dropdown item text color */
+  padding: 10px 20px;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s;
+}
+
+.dropdown-item:hover {
+  background-color: #e1dddd; /* Dropdown item hover background color */
+}
+
+.separator {
+  height: 1px;
+  background-color: #ccc; /* Separator color */
+  margin: 5px 0;
+}
+
+/* Dropdown toggler */
+.dropdown-toggler {
+  color: var(--foreground); /* Toggler text color */
+  text-decoration: none;
+  padding: 10px;
+  cursor: pointer;
+  position: relative;
+}
+
+.dropdown-toggler:hover {
+  color: var(--primary); /* Toggler text color on hover */
+}

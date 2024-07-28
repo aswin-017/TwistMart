@@ -1,0 +1,91 @@
+.carousel {
+    position: relative;
+    width: 80%; /* Adjust this width as needed */
+    margin: 0 auto;
+  }
+  
+  ul.slides {
+    position: relative;
+    height: 600px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    list-style: none;
+  }
+  
+  .slides input {
+    display: none;
+  }
+  
+  .slide-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.7s ease-in-out;
+  }
+  
+  .slide-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .carousel-controls {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 2rem;
+    color: #fff;
+    z-index: 1000;
+  }
+  
+  .carousel-controls label {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .carousel-dots {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    z-index: 1000;
+  }
+  
+  .carousel-dot {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin: 0 5px;
+    opacity: 0.5;
+  }
+  
+  input:checked + .slide-container {
+    opacity: 1;
+  }
+  
+  input:checked + .slide-container ~ .carousel-controls label {
+    display: block;
+  }
+  
+  input:checked ~ .carousel-dots label {
+    opacity: 1;
+  }
+  
+  /* Optional: Hide labels when the carousel is hovered over */
+  .carousel-controls label {
+    display: none;
+  }
+  
+  .carousel:hover .carousel-controls label {
+    display: block;
+  }

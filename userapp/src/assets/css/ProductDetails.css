@@ -1,0 +1,91 @@
+Import theme colors from app.css
+/* @import '../../assets/css/app.css'; */
+
+/* Product Details Container */
+.product-details-container {
+  padding: 20px;
+  background-color: var(--background);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative; /* Ensure positioning context for back button */
+}
+
+/* Back Button */
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  border: none;
+  border-radius: var(--radius);
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.back-button:hover {
+  background-color: var(--primary-dark);
+}
+
+/* Product Info Section */
+.product-info {
+  display: flex;
+  align-items: center;
+  margin-top: 50px; /* Space for back button */
+  background-color: #fff; /* You can use var(--background) for a consistent theme */
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin-right: 20px;
+}
+
+.product-details {
+  max-width: 600px;
+}
+
+.product-details h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.product-details p {
+  margin: 10px 0;
+  color: var(--text);
+}
+
+/* Shop List */
+.shop-list {
+  margin-top: 40px;
+}
+
+.shop-item {
+  padding: 15px;
+  margin-bottom: 15px;
+  background-color: #fff;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.shop-link {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  border: none;
+  border-radius: var(--radius);
+  padding: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.shop-link:hover {
+  background-color: var(--primary-dark);
+}

@@ -1,0 +1,83 @@
+// import React from 'react';
+// import '../../assets/css/ProductCard.css'
+// const ProductCard = ({ product }) => {
+//   return (
+//     <div className="product-card">
+//        <img src={product.image} alt={product.name} className="product-image" />
+//        <div className="product-details">
+//         <h2 className="product-name">{product.name}</h2>
+//         <p className="product-price">{product.price}</p>
+//       </div>
+//     </div>
+//   );
+// };
+
+
+
+// import React from 'react';
+// import { Link } from 'react-router-dom';
+// import '../../assets/css/ProductCard.css';
+
+// const ProductCard = ({ product }) => {
+//   return (
+//     <div className="product-card">
+//       <Link to={`/products/${product.id}`} className="product-link">
+//         <img src={product.image} alt={product.name} className="product-image" />
+//         <div className="product-details">
+//           <h2 className="product-name">{product.name}</h2>
+//           <p className="product-price">{product.price}</p>
+//         </div>
+//       </Link>
+//     </div>
+//   );
+// };
+
+// export default ProductCard;
+// ProductCard.js
+
+// import React from 'react';
+// import { Link } from 'react-router-dom';
+// import '../../assets/css/ProductCard.css';
+
+// const ProductCard = ({ product }) => {
+//   return (
+//     <div className="product-card">
+//       <Link to={`/products/${product.id}`} className="product-link">
+//         <div className="product-image-container">
+//           <img src={product.image} alt={product.name} className="product-image" />
+//         </div>
+//         <div className="product-details">
+//           <h2 className="product-name">{product.name}</h2>
+//           <p className="product-price">{product.price}</p>
+//           <button className="product-button">View Details</button>
+//         </div>
+//       </Link>
+//     </div>
+//   );
+// };
+
+// export default ProductCard;
+// ProductCard.js
+
+import React from 'react';
+import { Link } from 'react-router-dom';
+import '../../assets/css/ProductCard.css';
+
+const ProductCard = ({ product }) => {
+  return (
+    <div className="product-card">
+      <Link to={`/products/${product.id}`} className="product-link">
+        <div className="product-image-container">
+          <img src={product.image} alt={product.name} className="product-image" />
+        </div>
+        <div className="product-details">
+          <h2 className="product-name">{product.name}</h2>
+          <p className="product-price">{product.price}</p>
+        </div>
+      </Link>
+    </div>
+  );
+};
+
+export default ProductCard;
+                                                                                                                                                                                                                                                                                                            
