@@ -78,7 +78,8 @@
 }
 
 .dropdown-item:hover {
-  background-color: #e1dddd; /* Dropdown item hover background color */
+  background-color: var(--primary);
+  color: var(--background); /* Dropdown item hover background color */
 }
 
 .separator {

@@ -14,7 +14,7 @@ const Header = () => {
     if (isAuthenticated) {
       navigate('/profile');
     } else {
-      navigate('/profile');
+      navigate('/login');
     }
   };
 

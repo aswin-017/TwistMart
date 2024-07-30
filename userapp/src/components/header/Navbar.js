@@ -27,11 +27,15 @@ const Navbar = () => {
 
   const handleLogout = () => {
     logout();
-    navigate('/');
+    navigate('/login');
   };
 
-  const handleDropdownToggle = (dropdownName) => {
-    setDropdownIsOpen((prev) => !prev);
+  const handleDropdownOpen = () => {
+    setDropdownIsOpen(true);
+  };
+
+  const handleDropdownClose = () => {
+    setDropdownIsOpen(false);
   };
 
   return (
@@ -39,11 +43,19 @@ const Navbar = () => {
       <nav className="navbar">
         <ul className="navbar-list">
           <li className="navbar-item"><Link to="/" className="navbar-link">About</Link></li>
-          <li className="navbar-item">
-            <a href="#" className="dropdown-toggler" onClick={() => handleDropdownToggle('categories')}>
+          <li
+            className="navbar-item"
+            onMouseOver={handleDropdownOpen}
+            onMouseOut={handleDropdownClose}
+          >
+            <a href="#" className="dropdown-toggler">
               Categories <FontAwesomeIcon icon={faAngleDown} />
             </a>
-            <ul ref={dropdownRef} className={`dropdown ${dropdownIsOpen ? 'show' : ''}`} id="categories">
+            <ul
+              ref={dropdownRef}
+              className={`dropdown ${dropdownIsOpen ? 'show' : ''}`}
+              id="categories"
+            >
               <li><Link to="/fruits" className="dropdown-item">Fruits & Vegetables</Link></li>
               <li><Link to="/foodgrains" className="dropdown-item">FoodGrains, Oil & Masala</Link></li>
               <li><Link to="/bakery" className="dropdown-item">Bakery, Cakes & Dairy</Link></li>

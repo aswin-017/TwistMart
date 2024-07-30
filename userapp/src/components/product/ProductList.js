@@ -51,22 +51,23 @@ import pineappleImage from '../../assets/images/pineapple.jpg';
 
 // Sample products (replace with your actual data)
 const products = [
-  { id: 1, name: 'Rice', price: '₹100', image: riceImage },
-  { id: 2, name: 'Tomato', price: '₹30', image: tomatoImage },
-  { id: 3, name: 'Potato', price: '₹25', image: potatoImage },
-  { id: 4, name: 'Onion', price: '₹40', image: onionImage },
-  { id: 5, name: 'Garlic', price: '₹150', image: garlicImage },
-  { id: 6, name: 'Carrot', price: '₹50', image: carrotImage },
-  { id: 7, name: 'Beans', price: '₹60', image: beansImage },
-  { id: 8, name: 'Cabbage', price: '₹30', image: cabbageImage },
-  { id: 9, name: 'Broccoli', price: '₹70', image: broccoliImage },
-  { id: 10, name: 'Spinach', price: '₹40', image: spinachImage },
-  { id: 11, name: 'Apple', price: '₹120', image: appleImage },
-  { id: 12, name: 'Banana', price: '₹40', image: bananaImage },
-  { id: 13, name: 'Orange', price: '₹80', image: orangeImage },
-  { id: 14, name: 'Mango', price: '₹150', image: mangoImage },
-  { id: 15, name: 'Pineapple', price: '₹90', image: pineappleImage }
-];
+    { id: 1, name: 'Rice', price: '₹100 - ₹150', image: riceImage },
+    { id: 2, name: 'Tomato', price: '₹20 - ₹40', image: tomatoImage },
+    { id: 3, name: 'Potato', price: '₹20 - ₹30', image: potatoImage },
+    { id: 4, name: 'Onion', price: '₹30 - ₹50', image: onionImage },
+    { id: 5, name: 'Garlic', price: '₹120 - ₹180', image: garlicImage },
+    { id: 6, name: 'Carrot', price: '₹40 - ₹60', image: carrotImage },
+    { id: 7, name: 'Beans', price: '₹50 - ₹70', image: beansImage },
+    { id: 8, name: 'Cabbage', price: '₹20 - ₹40', image: cabbageImage },
+    { id: 9, name: 'Broccoli', price: '₹60 - ₹80', image: broccoliImage },
+    { id: 10, name: 'Spinach', price: '₹30 - ₹50', image: spinachImage },
+    { id: 11, name: 'Apple', price: '₹100 - ₹140', image: appleImage },
+    { id: 12, name: 'Banana', price: '₹30 - ₹50', image: bananaImage },
+    { id: 13, name: 'Orange', price: '₹70 - ₹90', image: orangeImage },
+    { id: 14, name: 'Mango', price: '₹130 - ₹170', image: mangoImage },
+    { id: 15, name: 'Pineapple', price: '₹80 - ₹100', image: pineappleImage }
+  ];
+  
 const ProductList = () => {
     const [search, setSearch] = useState('');
 

@@ -111,10 +111,10 @@ const Profile = () => {
                 {activeSection === 'details' && (
                     <div className="profile-details">
                         <h2>Personal Information</h2>
-                        <p><strong>Email:</strong> {user.email}</p>
-                        <p><strong>First Name:</strong> {user.firstName}</p>
-                        <p><strong>Last Name:</strong> {user.lastName}</p>
-                        <p><strong>Phone:</strong> {user.phone}</p>
+                        <p><strong>Email:</strong> {user.email} aswinbeatz@gmail.com</p>
+                        <p><strong>First Name:</strong> {user.firstName}Aswin</p>
+                        <p><strong>Last Name:</strong> {user.lastName}A</p>
+                        <p><strong>Phone:</strong> {user.phone}9876543210</p>
                         <h2>Addresses</h2>
                         {user.addresses.length > 0 ? (
                             user.addresses.map((address, index) => (
