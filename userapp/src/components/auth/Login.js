@@ -1,3 +1,5 @@
+// Login.js
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -22,15 +24,21 @@ const Login = () => {
         body: JSON.stringify({ email, password }),
       });
       if (response.ok) {
-        const data = await response.json();
-        login(data.token, data.userId, data.firstName, data.lastName); // Call login function from context
+        const userData = await response.json();
+        const { userId, firstName, lastName } = userData;
+        login(userId, firstName, lastName); // Call login function from context
         toast.success('Login successful!');
-        navigate('/profile'); // Navigate to the profile page on success
+        
+        // Navigate to previous page or /profile if no previous page
+        const previousPath = localStorage.getItem('previousPath') || '/profile';
+        localStorage.removeItem('previousPath');
+        navigate(previousPath);
       } else {
         toast.error('Login failed. Please check your credentials.');
       }
     } catch (error) {
       toast.error('An error occurred. Please try again.');
+      console.error('Login error:', error);
     }
   };
 
@@ -44,7 +52,9 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <button onClick={handleHome} className="home-button">Home</button>
+      <button onClick={handleHome} className="home-button">
+        Home
+      </button>
       <div className="login-box">
         <h2>Login</h2>
         <form onSubmit={handleLogin}>
@@ -68,11 +78,15 @@ const Login = () => {
               required
             />
           </div>
-          <button type="submit" className="login-button">Login</button>
+          <button type="submit" className="login-button">
+            Login
+          </button>
         </form>
         <div className="signup-box">
           <p>Don't have an account?</p>
-          <button onClick={handleSignup} className="signup-button">Create New Account</button>
+          <button onClick={handleSignup} className="signup-button">
+            Create New Account
+          </button>
         </div>
       </div>
     </div>

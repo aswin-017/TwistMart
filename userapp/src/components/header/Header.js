@@ -1,19 +1,23 @@
 import React from 'react';
 import { useAuth } from '../context/AuthContext';
 import Navbar from './Navbar';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import ToggleTheme from '../ToggleTheme';
+import { useCart } from '../context/CartContext'; // Import useCart hook
 import '../../assets/css/Header.css';
 
 const Header = () => {
   const { isAuthenticated, firstName, lastName } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+  const { cartItems } = useCart(); // Access cartItems from CartContext
 
   const handleProfileClick = () => {
-    console.log(isAuthenticated);
     if (isAuthenticated) {
       navigate('/profile');
     } else {
+      // Store current location to navigate back after login
+      localStorage.setItem('prevLocation', '/profile');
       navigate('/login');
     }
   };
@@ -22,9 +26,14 @@ const Header = () => {
     if (isAuthenticated) {
       navigate('/cart');
     } else {
+      // Store current location to navigate back after login
+      localStorage.setItem('prevLocation', '/cart');
       navigate('/login');
     }
   };
+
+  // Calculate total items in cart
+  const cartItemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   return (
     <>
@@ -41,12 +50,20 @@ const Header = () => {
         </div>
         <div className="header-right">
           <ToggleTheme />
-          <button className="profile-icon" onClick={handleProfileClick}>
-            <i className="fa fa-user"></i> {isAuthenticated ? `${firstName} ${lastName}` : 'Profile'}
-          </button>
-          <button className="cart-button" onClick={handleCartClick}>
-            <i className="fa fa-shopping-cart"></i> Cart
-          </button>
+          {isAuthenticated ? (
+            <>
+              <button className="profile-icon" onClick={handleProfileClick}>
+                <i className="fa fa-user"></i> {`${firstName} ${lastName}`}
+              </button>
+              <button className="cart-button" onClick={handleCartClick}>
+                <i className="fa fa-shopping-cart"></i> Cart {cartItemCount > 0 && `(${cartItemCount})`}
+              </button>
+            </>
+          ) : (
+            <button className="profile-icon" onClick={() => navigate('/login')}>
+              <i className="fa fa-user"></i> Login
+            </button>
+          )}
         </div>
       </header>
       <Navbar />

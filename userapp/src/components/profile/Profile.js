@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import '../../assets/css/Profile.css'; // Ensure you create this CSS file
+import '../../assets/css/Profile.css';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
@@ -14,35 +14,31 @@ const Profile = () => {
         addresses: []
     });
     const [activeSection, setActiveSection] = useState('details');
-    const { token, userId } = useAuth(); // Use AuthContext to get token and userId
+    const { userId, isAuthenticated, logout } = useAuth();
     const navigate = useNavigate();
 
     useEffect(() => {
         const fetchUserDetails = async () => {
-   
-            if (!token) {
-                // toast.error('No token found. Please login again.');
+            if (!isAuthenticated) {
                 return;
             }
 
             try {
-                console.log('Token:', token);  // Debug log
                 const response = await fetch(`http://localhost:8080/api/users/${userId}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`
-                    }
+                    },
                 });
                 if (response.ok) {
                     const data = await response.json();
-                    setUser(prevState => ({
-                        ...prevState,
+                    setUser({
+                        ...user,
                         email: data.email,
                         firstName: data.firstName,
                         lastName: data.lastName,
                         phone: data.phone
-                    }));
+                    });
                 } else {
                     throw new Error('Failed to fetch user details');
                 }
@@ -53,20 +49,16 @@ const Profile = () => {
         };
 
         const fetchUserAddresses = async () => {
-       
-            if (!token) {
-                // toast.error('No token found. Please login again.');
+            if (!isAuthenticated) {
                 return;
             }
 
             try {
-                console.log('Token:', token);  // Debug log
                 const response = await fetch(`http://localhost:8080/api/addresses/user/${userId}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`
-                    }
+                    },
                 });
                 if (response.ok) {
                     const data = await response.json();
@@ -83,16 +75,14 @@ const Profile = () => {
             }
         };
 
-        if (userId) {
-            fetchUserDetails();
-            fetchUserAddresses();
-        }
-    }, [token, userId]);
+        fetchUserDetails();
+        fetchUserAddresses();
+    }, [userId, isAuthenticated, user]); // Add 'user' to dependencies to prevent React hook warnings
 
     const handleLogout = () => {
-        // Handle logout logic
+        logout();
+        navigate('/login');
         toast.success('Logged out successfully!');
-        navigate('/login'); // Redirect to login page
     };
 
     return (
@@ -111,10 +101,10 @@ const Profile = () => {
                 {activeSection === 'details' && (
                     <div className="profile-details">
                         <h2>Personal Information</h2>
-                        <p><strong>Email:</strong> {user.email} aswinbeatz@gmail.com</p>
-                        <p><strong>First Name:</strong> {user.firstName}Aswin</p>
-                        <p><strong>Last Name:</strong> {user.lastName}A</p>
-                        <p><strong>Phone:</strong> {user.phone}9876543210</p>
+                        <p><strong>Email:</strong> {user.email} </p>
+                        <p><strong>First Name:</strong> {user.firstName}</p>
+                        <p><strong>Last Name:</strong> {user.lastName}</p>
+                        <p><strong>Phone:</strong> {user.phone}</p>
                         <h2>Addresses</h2>
                         {user.addresses.length > 0 ? (
                             user.addresses.map((address, index) => (

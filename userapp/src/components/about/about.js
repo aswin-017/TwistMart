@@ -8,7 +8,7 @@ import CardList from './card1';
 import Footer from '../Footer';
 
 const AboutUs = () => {
-  const image = 'https://img.freepik.com/free-photo/partnership-handshake-innovation-corporate-business-concept_53876-104048.jpg?w=996&t=st=1722007681~exp=1722008281~hmac=4355d73c230a549c4211bcf6a3eb8368ee20a35003a2f38737fdcac4a7b12de8'
+  const image = 'https://media.istockphoto.com/id/1404203888/photo/contact-us-wood-cube-symbol-chat-mail-address-and-mobile-phone-website-page-contact-us.jpg?s=2048x2048&w=is&k=20&c=BRzYcTLZQJggsIl-tMlfoNLIpSzkVZMOfEVJlDsgYxg='
   return (
     <div className="about-us">
       <div className="about-image-container">
@@ -23,7 +23,7 @@ const AboutUs = () => {
       <Card3/>
       <Card4 />  
       <CardList /> 
-      <Footer/>
+      {/* <Footer/> */}
   
 
     </div>

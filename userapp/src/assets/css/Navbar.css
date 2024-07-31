@@ -2,12 +2,13 @@
 
 /* Navbar container */
 .navbar-container {
-  margin-top: 85px; /* Adjust based on the header height */
+  margin-top: 65px;
+  margin-bottom: 10px; /* Adjust based on the header height */
 }
 
 /* Navbar styling */
 .navbar {
-  background-color: var(--background); /* Use theme background */
+  background-color: var(--card-background); /* Use theme background */
   padding: 10px 20px;
   border-bottom: 1px solid var(--border); /* Use theme border */
 }

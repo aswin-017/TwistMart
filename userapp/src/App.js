@@ -18,6 +18,9 @@ import Home from './components/home/Home';
 import PageNotFound from './components/PageNotFound'; // Import PageNotFound component
 import Cart from './components/cart/Cart';
 import Checkout from './components/cart/Checkout';
+import Footer from './components/Footer';
+import ProtectedRoute from './components/ProtectedRoute';
+import RedirectIfAuthenticated from './components/RedirectIfAuthenticated';
 
 const AppContent = () => {
   const location = useLocation();
@@ -27,20 +30,22 @@ const AppContent = () => {
     <>
       {!hideHeaderRoutes.includes(location.pathname) && <Header />}
       <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/addaddress" element={<Address />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/login" element={<RedirectIfAuthenticated element={Login} />} />
+        <Route path="/signup" element={<RedirectIfAuthenticated element={Signup} />} />
+        <Route path="/addaddress" element={<ProtectedRoute element={Address} />} />
+        <Route path="/profile" element={<ProtectedRoute element={Profile} />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/" element={<AboutUs />} />
+        <Route path="/about" element={<AboutUs />} />
         <Route path="/contact" element={<ContactForm />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/cart" element={<ProtectedRoute element={Cart} />} />
+        <Route path="/checkout" element={<ProtectedRoute element={Checkout} />} />
         <Route path="/products" element={<ProductList />} />
         <Route path="/products/:id" element={<ProductDetails />} />
         <Route path="/product/:productId/:shopId" element={<ShopProductDetails />} />
-        <Route path="*" element={<PageNotFound />} /> {/* Catch all undefined routes */}
+        <Route path="/" element={<Home />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
+      {/* <Footer/> */}
       <ToastContainer />
     </>
   );

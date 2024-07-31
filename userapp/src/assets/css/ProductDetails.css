@@ -106,7 +106,7 @@
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 15px;
-  background-color: var(--background);
+  background-color: var(--card-background);
   flex: 1 1 calc(25% - 20px); /* Adjusts to fit 4 items per row with gap */
   box-sizing: border-box;
   transition: background-color 0.3s;

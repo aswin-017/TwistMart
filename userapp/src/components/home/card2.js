@@ -1,50 +1,45 @@
-import React, { useState } from 'react';
-import '../../assets/css/card-2.css';
+import React from 'react';
+import '../../assets/css/card-2.css'; // Adjust the CSS file path if necessary
 
 const cardData = [
   { 
-    imgSrc: 'https://i5.walmartimages.com/asr/6db28597-47ee-485f-9f11-72c6cee681be_1.3d19c39ee6f2546dc47f11b8e77d6657.jpeg',
-    title: 'Detergents',
-    description: 'Description for card 1'
+    imgSrc: 'https://www.bigbasket.com/media/customPage/b01eee88-e6bc-410e-993c-dedd012cf04b/91e53046-98e0-4c5b-ae53-7d073e5210e1/09ece9f7-7ac9-4d1e-afbb-f8ac572add38/hp_sbf_m_biscuits-&-namkeens_480_250923.jpg?tr=w-1920,q=80',
+ 
   },
   { 
-    imgSrc: 'https://www.kumaragro.com/wp-content/uploads/2021/05/1-LIT.jpg',
-    title: 'Sun Light Oil',
-    description: 'Description for card 2'
+    imgSrc: 'https://www.bigbasket.com/media/customPage/b01eee88-e6bc-410e-993c-dedd012cf04b/91e53046-98e0-4c5b-ae53-7d073e5210e1/41a0810e-1fc3-46e4-9d2c-7d9e79e0aa29/hp_f&v_m_fresh-vegetables_480_250923.jpg?tr=w-1920,q=80',
+
   },
   { 
-    imgSrc: 'https://i5.walmartimages.com/asr/b1eb11b5-aafb-4bc5-886c-1470cc9f1813_1.41077f36256ad250274903389e57b820.jpeg',
-    title: 'Dove Soap',
-    description: 'Description for card 3'
+    imgSrc: 'https://www.bigbasket.com/media/customPage/b01eee88-e6bc-410e-993c-dedd012cf04b/91e53046-98e0-4c5b-ae53-7d073e5210e1/fefafda6-5ef7-4ed2-8fee-2574720666d7/hp_c&h_m_detergents-&-fabric-care_480_250723.jpg?tr=w-1920,q=80',
+ 
   },
   { 
-    imgSrc: 'https://tse3.mm.bing.net/th?id=OIP.B1MZ5a8P5gDK93XEC9-PxwHaHa&pid=Api&P=0&h=180',
-    title: 'Hair Washer',
-    description: 'Description for card 4'
+    imgSrc: 'https://www.bigbasket.com/media/customPage/b01eee88-e6bc-410e-993c-dedd012cf04b/91e53046-98e0-4c5b-ae53-7d073e5210e1/09ece9f7-7ac9-4d1e-afbb-f8ac572add38/hp_sbf_m_pasta-sauces-&-more_480_270723.jpg?tr=w-1920,q=80',
+
   },
   { 
-    imgSrc: 'https://i5.walmartimages.com/asr/b9fd1e1b-9ae5-4aeb-9778-0453831c8d67.c29694a871990339bfbf420dc41c032a.jpeg',
-    title: 'Cereals',
-    description: 'Description for card 5'
+    imgSrc: 'https://www.bigbasket.com/media/customPage/b01eee88-e6bc-410e-993c-dedd012cf04b/91e53046-98e0-4c5b-ae53-7d073e5210e1/41a0810e-1fc3-46e4-9d2c-7d9e79e0aa29/hp_f&v_m_herbs-&-seasoning_480_250923.jpg?tr=w-1920,q=80',
+   
   }
 ];
 
-const Card2 = () => {
-  const [quantities, setQuantities] = useState(cardData.map(() => 1));
+const CardList = () => {
+  // const [quantities, setQuantities] = useState(cardData.map(() => 1));
 
-  const handleQuantityChange = (index, newQuantity) => {
-    const updatedQuantities = [...quantities];
-    updatedQuantities[index] = newQuantity;
-    setQuantities(updatedQuantities);
-  };
+  // const handleQuantityChange = (index, newQuantity) => {
+  //   const updatedQuantities = [...quantities];
+  //   updatedQuantities[index] = newQuantity;
+  //   setQuantities(updatedQuantities);
+  // };
 
-  const handleAddToCart = (index) => {
-    console.log(`Added ${quantities[index]} of ${cardData[index].title} to the cart.`);
-  };
+  // const handleAddToCart = (index) => {
+  //   console.log(Added ${quantities[index]} of ${cardData[index].title} to the cart.);
+  // };
 
   return (
     <div className="container">
-      <h2 className="new-arrivals">New Arrivals</h2>
+      <h2 className="new-arrivals">Top Offers & Discounts</h2>
       <div className="card-deck">
         {cardData.map((card, index) => (
           <div className="card my-3" key={index}>
@@ -52,11 +47,12 @@ const Card2 = () => {
             <div className="card-body">
               <h4 className="card-title">{card.title}</h4>
               <p className="card-text">{card.description}</p>
+              {/* 
               <div className="quantity-container">
-                <label htmlFor={`quantity-${index}`}>Quantity:</label>
+                <label htmlFor={quantity-${index}}>Quantity:</label>
                 <input
                   type="number"
-                  id={`quantity-${index}`}
+                  id={quantity-${index}}
                   min="1"
                   value={quantities[index]}
                   onChange={(e) => handleQuantityChange(index, parseInt(e.target.value))}
@@ -64,7 +60,8 @@ const Card2 = () => {
               </div>
               <button className="btn btn-primary" type="button" onClick={() => handleAddToCart(index)}>
                 Add To Cart
-              </button>
+              </button> 
+              */}
             </div>
           </div>
         ))}
@@ -73,4 +70,4 @@ const Card2 = () => {
   );
 };
 
-export default Card2;
+export default CardList;

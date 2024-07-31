@@ -1,32 +1,33 @@
-/* src/assets/css/app.css */
-
-/* Light pink theme */
+/* Light Theme */
 .light {
-  --background: #c8e8f5; /* Light blue background */
+  --background: #cce7ff; /* Light blue background for body */
   --foreground: #000000; /* Black text color for contrast */
-  --muted: #ADD8E6; /* Lighter blue for muted elements */
-  --border: #4682B4; /* Soft blue border */
-  --primary: #05477d; /* Bright blue primary color */
+  --muted: #a2c2e3; /* Lighter blue for muted elements */
+  --border: #80b3ff; /* Soft blue border */
+  --primary: #0056b3; /* Strong blue primary color */
   --primary-foreground: #ffffff; /* White text on primary color */
-  --primary-dark: #1A237E; /* Deep blue for dark primary */
-  --accent: #6495ED; /* Light blue accent color */
+  --primary-dark: #003d7a; /* Darker blue for dark primary */
+  --accent: #66a3ff; /* Light blue accent color */
   --accent-foreground: #ffffff; /* White text on accent color */
   --radius: 4px; /* Rounded corners */
+  --card-background: #e0f0ff; /* Very light blue background for cards */
 }
 
-/* Dark pink theme */
+/* Dark Theme */
 .dark {
-  --background: #011233; /* Dark blue background */
-  --foreground: #87CEEB; /* Light blue text color */
-  --muted: #28415a; /* Muted dark blue */
-  --border: #464d6f; /* Darker blue border */
-  --primary: #2196F3; /* Bright blue primary color */
+  --background: #001f3f; /* Dark navy blue background for body */
+  --foreground: #b3d9ff; /* Light blue text color */
+  --muted: #003366; /* Muted dark blue */
+  --border: #004080; /* Darker blue border */
+  --primary: #0099ff; /* Bright blue primary color */
   --primary-foreground: #ffffff; /* White text on primary color */
-  --primary-dark: #1A237E; /* Deep blue for dark primary */
-  --accent: #4F69C6; /* Muted blue accent color */
+  --primary-dark: #007acc; /* Deep blue for dark primary */
+  --accent: #0066cc; /* Medium blue accent color */
   --accent-foreground: #ffffff; /* White text on accent color */
   --radius: 4px; /* Rounded corners */
+  --card-background: #00264d; /* Darker blue background for cards */
 }
+
 
 /* Apply theme variables to the body */
 body {

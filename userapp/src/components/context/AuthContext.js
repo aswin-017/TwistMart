@@ -1,57 +1,49 @@
+// AuthContext.js
+
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-    const [token, setToken] = useState(localStorage.getItem('token') || null);
-    const [userId, setUserId] = useState(localStorage.getItem('userId') || null);
-    const [firstName, setFirstName] = useState(localStorage.getItem('firstName') || '');
-    const [lastName, setLastName] = useState(localStorage.getItem('lastName') || '');
-    const [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem('isAuthenticated') || '');
+  const [userId, setUserId] = useState(localStorage.getItem('userId') || null);
+  const [firstName, setFirstName] = useState(localStorage.getItem('firstName') || '');
+  const [lastName, setLastName] = useState(localStorage.getItem('lastName') || '');
+  const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('userId'));
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    useEffect(() => {
-        localStorage.setItem('token', token || '');
-        localStorage.setItem('userId', userId || '');
-        localStorage.setItem('firstName', firstName || '');
-        localStorage.setItem('lastName', lastName || '');
-        // setIsAuthenticated(!!token);
-    }, [token, userId, firstName, lastName]);
+  useEffect(() => {
+    localStorage.setItem('userId', userId || '');
+    localStorage.setItem('firstName', firstName || '');
+    localStorage.setItem('lastName', lastName || '');
+    localStorage.setItem('isAuthenticated', isAuthenticated);
+  }, [userId, firstName, lastName, isAuthenticated]);
 
-    const login = (token, userId, firstName, lastName) => {
-        setToken(token);
-        setUserId(userId);
-        setFirstName(firstName);
-        setLastName(lastName);
-        setIsAuthenticated(true);
-        localStorage.setItem('token', token);
-        localStorage.setItem('userId', userId);
-        localStorage.setItem('firstName', firstName);
-        localStorage.setItem('lastName', lastName);
-        localStorage.setItem('isAuthenticated',true);
-    };
+  const login = (userId, firstName, lastName) => {
+    setUserId(userId);
+    setFirstName(firstName);
+    setLastName(lastName);
+    setIsAuthenticated(true);
+  };
 
-    const logout = () => {
-        setToken(null);
-        setUserId(null);
-        setFirstName('');
-        setLastName('');
-        localStorage.removeItem('token');
-        localStorage.removeItem('userId');
-        localStorage.removeItem('firstName');
-        localStorage.removeItem('lastName');
-        localStorage.removeItem('isAuthenticated');
-        setIsAuthenticated(false);
-        navigate('/login');
-    };
+  const logout = () => {
+    setUserId(null);
+    setFirstName('');
+    setLastName('');
+    setIsAuthenticated(false);
+    localStorage.removeItem('userId');
+    localStorage.removeItem('firstName');
+    localStorage.removeItem('lastName');
+    localStorage.removeItem('isAuthenticated');
+    navigate('/login');
+  };
 
-    return (
-        <AuthContext.Provider value={{ token, userId, firstName, lastName, login, logout, isAuthenticated }}>
-            {children}
-        </AuthContext.Provider>
-    );
+  return (
+    <AuthContext.Provider value={{ userId, firstName, lastName, login, logout, isAuthenticated }}>
+      {children}
+    </AuthContext.Provider>
+  );
 };
 
 export const useAuth = () => useContext(AuthContext);
