@@ -32,13 +32,13 @@ const Profile = () => {
                 });
                 if (response.ok) {
                     const data = await response.json();
-                    setUser({
-                        ...user,
+                    setUser(prevState => ({
+                        ...prevState,
                         email: data.email,
                         firstName: data.firstName,
                         lastName: data.lastName,
                         phone: data.phone
-                    });
+                    }));
                 } else {
                     throw new Error('Failed to fetch user details');
                 }
@@ -77,7 +77,7 @@ const Profile = () => {
 
         fetchUserDetails();
         fetchUserAddresses();
-    }, [userId, isAuthenticated, user]); // Add 'user' to dependencies to prevent React hook warnings
+    }, [userId, isAuthenticated]);
 
     const handleLogout = () => {
         logout();

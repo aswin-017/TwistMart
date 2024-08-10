@@ -1,38 +1,62 @@
-.App {
-  text-align: center;
+/* Light Theme */
+.light {
+  --background: #cce7ff; /* Light blue background for body */
+  --foreground: #000000; /* Black text color for contrast */
+  --muted: #a2c2e3; /* Lighter blue for muted elements */
+  --border: #80b3ff; /* Soft blue border */
+  --primary: #0056b3; /* Strong blue primary color */
+  --primary-foreground: #ffffff; /* White text on primary color */
+  --primary-dark: #003d7a; /* Darker blue for dark primary */
+  --accent: #66a3ff; /* Light blue accent color */
+  --accent-foreground: #ffffff; /* White text on accent color */
+  --radius: 4px; /* Rounded corners */
+  --card-background: #e0f0ff; /* Very light blue background for cards */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Dark Theme */
+.dark {
+  --background: #001f3f; /* Dark navy blue background for body */
+  --foreground: #b3d9ff; /* Light blue text color */
+  --muted: #003366; /* Muted dark blue */
+  --border: #004080; /* Darker blue border */
+  --primary: #0099ff; /* Bright blue primary color */
+  --primary-foreground: #ffffff; /* White text on primary color */
+  --primary-dark: #007acc; /* Deep blue for dark primary */
+  --accent: #0066cc; /* Medium blue accent color */
+  --accent-foreground: #ffffff; /* White text on accent color */
+  --radius: 4px; /* Rounded corners */
+  --card-background: #00264d; /* Darker blue background for cards */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+/* Apply theme variables to the body */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  margin: 0;
+  font-family: Arial, sans-serif; /* Optional: set a default font */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Other global styles */
+a {
+  color: var(--primary);
 }
 
-.App-link {
-  color: #61dafb;
+button {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  border: none;
+  border-radius: var(--radius);
+  padding: 10px 15px;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button:hover {
+  background-color: var(--primary-dark);
+}
+
+input, textarea {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 5px;
 }

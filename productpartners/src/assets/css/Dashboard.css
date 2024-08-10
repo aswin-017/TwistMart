@@ -1,0 +1,99 @@
+/* src/assets/css/Dashboard.css */
+
+/* Colors */
+:root {
+    --primaryColor: #74b49b;
+    --secondaryColor: #f4f9f4;
+    --textColor: #333;
+    --borderColor: #ddd;
+}
+
+/* Dashboard Container */
+.dashboard {
+    padding: 2rem;
+    background-color: var(--secondaryColor);
+    min-height: 100vh;
+}
+
+/* Dashboard Header */
+.dashboard-header {
+    margin-bottom: 2rem;
+}
+
+.dashboard-header h1 {
+    font-size: 2rem;
+    color: var(--primaryColor);
+    margin-bottom: 0.5rem;
+}
+
+.dashboard-header p {
+    font-size: 1rem;
+    color: var(--textColor);
+}
+
+/* Dashboard Content */
+.dashboard-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Statistics Section */
+.dashboard-statistics {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+}
+
+.stat-item h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--primaryColor);
+}
+
+.stat-item p {
+    font-size: 1.5rem;
+    color: var(--textColor);
+}
+
+/* Charts Section */
+.dashboard-charts {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.chart-item {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 300px;
+}
+
+.chart-item h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--primaryColor);
+}
+
+.chart-placeholder {
+    background-color: #f0f0f0;
+    height: 200px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+}

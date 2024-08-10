@@ -1,0 +1,95 @@
+/* src/assets/css/Login.css */
+
+/* Container for the entire login page */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative; /* Positioning context for the Home button */
+    background-color: var(--background); /* Background color based on theme */
+    color: var(--foreground); /* Text color based on theme */
+    padding: 20px; /* Add padding around the container */
+}
+
+/* Home button styling */
+.home-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 15px; /* Increase padding for a larger button */
+    border: none;
+    border-radius: var(--radius); /* Border radius based on theme */
+    background-color: var(--accent); /* Accent color based on theme */
+    color: var(--accent-foreground); /* Accent text color based on theme */
+    font-size: 18px; /* Slightly larger font size */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+}
+
+.home-button:hover {
+    background-color: var(--primary-dark); /* Darker shade for hover effect */
+}
+
+/* Styling for the login box */
+.login-box {
+    background-color: var(--muted); /* Muted color based on theme */
+    padding: 40px; /* Increased padding for more space inside the box */
+    border-radius: var(--radius); /* Border radius based on theme */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
+    max-width: 500px; /* Increased max-width for larger box */
+    width: 100%;
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+}
+
+/* Heading styling */
+h2 {
+    text-align: center;
+    margin-bottom: 30px; /* More space below the heading */
+    color: var(--primary); /* Primary color based on theme */
+    font-size: 24px; /* Larger font size for emphasis */
+}
+
+/* Input group styling */
+.input-group {
+    margin-bottom: 20px; /* Increased margin for more space between inputs */
+}
+
+/* Label styling */
+.input-group label {
+    display: block;
+    margin-bottom: 8px; /* Slightly larger margin for clarity */
+    font-weight: bold;
+    font-size: 16px; /* Larger font size for labels */
+}
+
+/* Input field styling */
+.input-group input {
+    width: 100%;
+    padding: 12px; /* Increased padding for better user experience */
+    border: 1px solid var(--border); /* Border color based on theme */
+    border-radius: var(--radius); /* Border radius based on theme */
+    background-color: var(--input-background); /* Input background color based on theme */
+    color: var(--foreground); /* Text color based on theme */
+    font-size: 16px;
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+}
+
+/* Login button styling */
+.login-button {
+    width: 100%;
+    padding: 12px; /* Increased padding for a larger button */
+    border: none;
+    border-radius: var(--radius); /* Border radius based on theme */
+    background-color: var(--primary); /* Primary color based on theme */
+    color: var(--primary-foreground); /* Primary text color based on theme */
+    font-size: 18px; /* Larger font size for better readability */
+    cursor: pointer;
+    margin-top: 20px; /* More space above the button */
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+}
+
+.login-button:hover {
+    background-color: var(--primary-dark); /* Darker shade for hover effect */
+}

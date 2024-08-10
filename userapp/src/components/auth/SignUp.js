@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import '../../assets/css/SignUp.css'; // Make sure to create this CSS file
+import '../../assets/css/SignUp.css';
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ const SignUp = () => {
       });
       if (response.ok) {
         toast.success('Account created successfully!');
-        navigate('/login'); // Navigate to login page on success
+        navigate('/login');
       } else {
         toast.error('Account creation failed. Please try again.');
       }
@@ -34,11 +34,11 @@ const SignUp = () => {
   };
 
   const handleLogin = () => {
-    navigate('/login'); // Navigate to the login page
+    navigate('/login');
   };
 
   const handleHome = () => {
-    navigate('/'); // Navigate to home page
+    navigate('/');
   };
 
   return (

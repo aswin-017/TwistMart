@@ -1,0 +1,26 @@
+.image-card-row-container {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping to a new row */
+    justify-content: space-between;
+    gap: 20px; /* Space between cards */
+    padding: 20px;
+    overflow-x: auto;
+    margin-left: 100px;
+    margin-right: 100px; /* Add horizontal scrolling if needed */
+  }
+  
+  .image-card {
+    width: calc(100% / 6 - 20px); /* 6 cards per row with gap consideration */
+    /* border: 1px solid #ddd; */
+    border-radius: 15px; /* Curved corners */
+  
+    overflow: hidden; /* Hide overflow */
+    flex: 0 0 auto; /* Prevent flex item from shrinking */
+  }
+  
+  .image-card img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+    object-fit: cover;
+  }

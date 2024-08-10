@@ -1,5 +1,3 @@
-// Login.js
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -9,7 +7,7 @@ import '../../assets/css/Login.css';
 
 const Login = () => {
   const navigate = useNavigate();
-  const { login } = useAuth(); // Destructure the login function from useAuth hook
+  const { login } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -25,11 +23,10 @@ const Login = () => {
       });
       if (response.ok) {
         const userData = await response.json();
-        const { userId, firstName, lastName } = userData;
-        login(userId, firstName, lastName); // Call login function from context
+        const { id, firstName, lastName } = userData;
+        login(id, firstName, lastName);
         toast.success('Login successful!');
         
-        // Navigate to previous page or /profile if no previous page
         const previousPath = localStorage.getItem('previousPath') || '/profile';
         localStorage.removeItem('previousPath');
         navigate(previousPath);

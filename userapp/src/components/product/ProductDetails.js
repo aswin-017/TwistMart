@@ -75,13 +75,10 @@ const ProductDetails = () => {
 
   // Function to handle adding product to cart
   const handleAddToCart = (shopId, price, shopName) => {
-    if (isAuthenticated) {
+    // if (isAuthenticated) {
       addToCart(productId, shopId, price, shopName);
       toast.success('Product added to cart successfully!');
-    } else {
-      navigate('/login');
-      toast.warning('You must login to add products to the cart.');
-    }
+    
   };
 
   return (

@@ -1,0 +1,25 @@
+/* CarouselStyles.css */
+.carousel-wrapper {
+    margin: 100px auto;
+    margin: 100px; /* Center the carousel horizontally and add margin */
+}
+
+.product-card {
+    border: none;
+    width: 450px; /* Adjust to the width of the carousel */
+    height: 250px; /* Fixed height to make the card rectangular */
+    overflow: hidden; /* Ensures the image does not overflow the card */
+    margin: 0 15px; /* Adds space between cards */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px; /* Add border radius to make corners rounded */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow for a better look */
+}
+
+.product-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the card */
+    border-radius: 15px; /* Matches the border radius of the card */
+}

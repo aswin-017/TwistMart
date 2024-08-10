@@ -1,0 +1,35 @@
+.contact-us {
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    margin-top: 20px;
+    border-radius: 8px;
+  }
+  
+  .contact-us h2 {
+    /* font-family: 'Oswald', sans-serif; */
+    font-size: 24px;
+    font-weight: 700;
+    color: #2B2B2B;
+    margin-bottom: 10px;
+  }
+  
+  .contact-us p {
+    /* font-family: 'Lato', Arial, sans-serif; */
+    font-size: 16px;
+    color: #2B2B2B;
+    margin-bottom: 10px;
+  }
+  
+  .contact-email {
+    font-family: 'Lato', Arial, sans-serif;
+    font-size: 16px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .contact-email:hover {
+    text-decoration: underline;
+  }
+  
