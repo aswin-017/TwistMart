@@ -1,0 +1,79 @@
+/* General Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Heading Styles */
+.heading {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  color: #333;
+}
+
+/* Card Container Styles */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: space-between; /* Distributes cards evenly */
+  padding: 0 1rem;
+  margin-bottom: 100px;
+  padding-top: 100px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+/* Card Styles */
+.card {
+  flex: 1 1 calc(20% - 16px); /* 5 cards per row, with gap consideration */
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.03); /* Slightly smaller scale effect */
+}
+
+.card-image {
+  width: 100%;
+  height: auto;
+}
+
+.card-content {
+  padding: 8px; /* Reduced padding for smaller cards */
+}
+
+.card-title {
+  font-size: 1rem; /* Smaller font size */
+  margin: 0;
+}
+
+.card-description {
+  font-size: 0.875rem; /* Smaller font size */
+  color: #666;
+}
+
+.card-link {
+  display: inline-block;
+  margin-top: 4px; /* Reduced margin */
+  font-size: 0.875rem; /* Smaller font size */
+  color: #007bff;
+  text-decoration: none;
+}
+
+.card-link:hover {
+  text-decoration: underline;
+}

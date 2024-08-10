@@ -1,16 +1,16 @@
 package com.twistmart.hypermarket.dto;
 
-import com.twistmart.hypermarket.model.Address;
-import com.twistmart.hypermarket.model.User;
+import java.time.LocalDateTime;
 
 public class AddressDTO {
     private Long id;
+    private Long userId;
     private String street;
     private String city;
     private String state;
     private String postalCode;
     private String country;
-    private Long userId;
+    private LocalDateTime createdAt;
 
     // Getters and Setters
     public Long getId() {
@@ -19,6 +19,14 @@ public class AddressDTO {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public String getStreet() {
@@ -61,42 +69,11 @@ public class AddressDTO {
         this.country = country;
     }
 
-    public Long getUserId() {
-        return userId;
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    // Convert DTO to Entity
-    public static Address toEntity(AddressDTO dto) {
-        Address address = new Address();
-        address.setId(dto.getId());
-        address.setStreet(dto.getStreet());
-        address.setCity(dto.getCity());
-        address.setState(dto.getState());
-        address.setPostalCode(dto.getPostalCode());
-        address.setCountry(dto.getCountry());
-
-        User user = new User();
-        user.setId(dto.getUserId());
-        address.setUser(user);
-
-        return address;
-    }
-
-    // Convert Entity to DTO
-    public static AddressDTO fromEntity(Address address) {
-        AddressDTO dto = new AddressDTO();
-        dto.setId(address.getId());
-        dto.setStreet(address.getStreet());
-        dto.setCity(address.getCity());
-        dto.setState(address.getState());
-        dto.setPostalCode(address.getPostalCode());
-        dto.setCountry(address.getCountry());
-        dto.setUserId(address.getUser().getId());
-
-        return dto;
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 }

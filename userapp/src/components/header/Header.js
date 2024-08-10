@@ -18,18 +18,18 @@ const Header = () => {
     } else {
       // Store current location to navigate back after login
       localStorage.setItem('prevLocation', '/profile');
-      navigate('/login');
+      navigate('/cart');
     }
   };
 
   const handleCartClick = () => {
-    if (isAuthenticated) {
+    // if (isAuthenticated) {
       navigate('/cart');
-    } else {
+    // } else {
       // Store current location to navigate back after login
       localStorage.setItem('prevLocation', '/cart');
-      navigate('/login');
-    }
+      navigate('/cart');
+    // }
   };
 
   // Calculate total items in cart
@@ -50,7 +50,7 @@ const Header = () => {
         </div>
         <div className="header-right">
           <ToggleTheme />
-          {isAuthenticated ? (
+          {/* {isAuthenticated ? ( */}
             <>
               <button className="profile-icon" onClick={handleProfileClick}>
                 <i className="fa fa-user"></i> {`${firstName} ${lastName}`}
@@ -59,11 +59,7 @@ const Header = () => {
                 <i className="fa fa-shopping-cart"></i> Cart {cartItemCount > 0 && `(${cartItemCount})`}
               </button>
             </>
-          ) : (
-            <button className="profile-icon" onClick={() => navigate('/login')}>
-              <i className="fa fa-user"></i> Login
-            </button>
-          )}
+
         </div>
       </header>
       <Navbar />

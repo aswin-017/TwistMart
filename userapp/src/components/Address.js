@@ -1,11 +1,13 @@
-// src/components/address/Address.js
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../assets/css/Address.css'; // Make sure to create this CSS file
-import { addAddressToAPI } from './api/addressApi'; // Update this import path as needed
+import { useAuth } from './context/AuthContext'; // Import useAuth
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const Address = () => {
+  const { userId } = useAuth(); // Use useAuth to get userId
+  const navigate = useNavigate(); // Initialize useNavigate
   const [street, setStreet] = useState('');
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
@@ -15,8 +17,30 @@ const Address = () => {
   const handleSaveAddress = async (e) => {
     e.preventDefault();
     try {
-      await addAddressToAPI({ street, city, state, postalCode, country });
+      // Replace with your backend API URL
+      const response = await fetch(`http://localhost:8080/api/addresses/user/${userId}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          street,
+          city,
+          state,
+          postalCode,
+          country,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to save address');
+      }
+
+      const data = await response.json();
       toast.success('Address saved successfully!');
+      
+      // Redirect to profile page after saving address
+      navigate('/profile');
     } catch (error) {
       toast.error('Failed to save address.');
     }
@@ -24,6 +48,9 @@ const Address = () => {
 
   return (
     <div className="address-container">
+      <button className="back-to-profile" onClick={() => navigate('/profile')}>
+        Back to Profile
+      </button>
       <div className="address-box">
         <h2>Enter Address</h2>
         <form onSubmit={handleSaveAddress}>
